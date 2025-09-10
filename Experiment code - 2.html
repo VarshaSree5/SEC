@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Registration Form</title>
+  <style>
+    /* Body and container */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #d0e8f2; /* Calm light blue */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .form-container {
+      background: #f7fafc; /* Very light cyan */
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #1f4e79;
+      margin-bottom: 25px;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* Grid form styling */
+    form {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-gap: 18px 24px;
+      align-items: center;
+    }
+
+    label {
+      font-weight: 600;
+      color: #2e4057;
+      font-size: 16px;
+      padding-right: 10px;
+      justify-self: end;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="password"],
+    select {
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1.8px solid #aac8d6;
+      font-size: 16px;
+      color: #33475b;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="number"]:focus,
+    input[type="password"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #1f4e79;
+      box-shadow: 0 0 8px #1f4e79aa;
+    }
+
+    /* Gender radio buttons aligned horizontally */
+    .gender-options {
+      display: flex;
+      gap: 20px;
+      justify-content: flex-start;
+    }
+    .gender-options label {
+      justify-self: start;
+      font-weight: 500;
+      color: #3b506a;
+    }
+    .gender-options input {
+      margin-right: 6px;
+      accent-color: #1f4e79;
+    }
+
+    /* Hobbies checkboxes aligned horizontally */
+    .hobbies-options {
+      display: flex;
+      gap: 16px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    .hobbies-options label {
+      font-weight: 500;
+      color: #3b506a;
+    }
+    .hobbies-options input {
+      margin-right: 6px;
+      accent-color: #1f4e79;
+    }
+
+    /* Submit button */
+    .submit-btn {
+      grid-column: 1 / 3;
+      padding: 14px 0;
+      font-size: 18px;
+      font-weight: 700;
+      color: #f7fafc;
+      background: #1f4e79;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 15px;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(31, 78, 121, 0.5);
+    }
+    .submit-btn:hover {
+      background-color: #145183;
+      box-shadow: 0 6px 16px rgba(20, 81, 131, 0.75);
+    }
+
+    /* Responsive: stack labels and inputs on small screens */
+    @media (max-width: 480px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+      label {
+        justify-self: start;
+        padding-bottom: 6px;
+      }
+      .submit-btn {
+        grid-column: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Student Registration Form</h2>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Full name" required />
+
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" min="1" max="120" placeholder="Your age" required />
+
+      <label>Gender</label>
+      <div class="gender-options">
+        <label><input type="radio" name="gender" value="Male" required /> Male</label>
+        <label><input type="radio" name="gender" value="Female" /> Female</label>
+        <label><input type="radio" name="gender" value="Other" /> Other</label>
+      </div>
+
+      <label for="education">Education Qualification</label>
+      <select id="education" name="education" required>
+        <option value="" disabled selected>Select qualification</option>
+        <option value="High School">High School</option>
+        <option value="Diploma">Diploma</option>
+        <option value="Bachelor's">Bachelor's Degree</option>
+        <option value="Master's">Master's Degree</option>
+        <option value="PhD">PhD</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="father-name">Father's Name</label>
+      <input type="text" id="father-name" name="fatherName" placeholder="Father's full name" required />
+
+      <label for="mother-name">Mother's Name</label>
+      <input type="text" id="mother-name" name="motherName" placeholder="Mother's full name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="example@mail.com" required />
+
+      <label for="nationality">Nationality</label>
+      <input type="text" id="nationality" name="nationality" placeholder="Your nationality" required />
+
+      <label>Hobbies</label>
+      <div class="hobbies-options">
+        <label><input type="checkbox" name="hobbies" value="Reading" /> Reading</label>
+        <label><input type="checkbox" name="hobbies" value="Sports" /> Sports</label>
+        <label><input type="checkbox" name="hobbies" value="Music" /> Music</label>
+        <label><input type="checkbox" name="hobbies" value="Traveling" /> Traveling</label>
+        <label><input type="checkbox" name="hobbies" value="Gaming" /> Gaming</label>
+      </div>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Create password" required />
+
+      <button type="submit" class="submit-btn">Register</button>
+    </form>
+  </div>
+</body>
+</html>
