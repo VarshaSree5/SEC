@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Tasks</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #list li {
+            background: #fff;
+            margin: 5px 0;
+            padding: 10px;
+            border-left: 5px solid #007BFF;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #myInput {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #add {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        #add:hover {
+            background-color: #0056b3;
+        }
+
+        .complete-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .complete-btn:hover {
+            background-color: #218838;
+        }
+
+        .completed {
+            background-color: yellow !important;
+        }
+    </style>
+</head>
+<body>
+    <h2>To do List</h2>
+    <ul id="list">
+        <li>Task 1 <button class="complete-btn">Complete</button></li>
+        <li>Task 2 <button class="complete-btn">Complete</button></li>
+        <li>Task 3 <button class="complete-btn">Complete</button></li>
+        <li>Task 4 <button class="complete-btn">Complete</button></li>
+    </ul>
+    <input type="text" id="myInput" placeholder="New task...">
+    <button id="add">Add Item</button>
+
+    <script>
+        
+        $(document).ready(function(){
+            $("#add").click(function(){
+                let task = $("#myInput").val();
+                if(task){
+                    $("#list").append('<li>' + task + ' <button class="complete-btn">Complete</button></li>');
+                    $("#myInput").val('');
+                }
+            });
+
+            
+            $("#list").on("click", ".complete-btn", function(){
+                $(this).closest("li").toggleClass("completed");
+            });
+        });
+    </script>
+</body>
+</html>
